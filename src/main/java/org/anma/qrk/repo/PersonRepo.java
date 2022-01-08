@@ -8,5 +8,16 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class PersonRepo implements PanacheMongoRepository<Person> {
 
+    public Person findByName(String name){
+        return find("name", name).firstResult();
+    }
+
+//    public List<Person> findAlive(){
+//        return list("status", Status.Alive);
+//    }
+
+    public void deleteLoics(){
+        delete("name", "Loïc");
+    }
 
 }
