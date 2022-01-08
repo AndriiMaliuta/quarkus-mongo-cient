@@ -1,14 +1,26 @@
 package org.anma.qrk.models;
 
+import io.quarkus.mongodb.panache.common.MongoEntity;
+import org.bson.types.ObjectId;
+
 import java.time.LocalDateTime;
 
+@MongoEntity(collection = "comments", database = "people")
 public class Comment {
 
+    public ObjectId id;
     public String body;
     public String category;
     public LocalDateTime createdAt;
     public String authorId;
 
+    public ObjectId getId() {
+        return id;
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
 
     public String getBody() {
         return body;

@@ -1,10 +1,12 @@
 package org.anma.qrk.models;
 
+import org.bson.types.ObjectId;
+
 import java.time.LocalDateTime;
 
 public class City {
 
-    private String id;
+    private ObjectId id;
     private String name;
     private String code;
     private String continent;
@@ -22,31 +24,11 @@ public class City {
     public City() {
     }
 
-    @Override
-    public String toString() {
-        return "City{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", code='" + code + '\'' +
-                ", continent='" + continent + '\'' +
-                ", createdAt=" + createdAt +
-                ", countryId='" + countryId + '\'' +
-                ", region='" + region + '\'' +
-                ", subregion='" + subregion + '\'' +
-                ", status='" + status + '\'' +
-                ", capital='" + capital + '\'' +
-                ", independent=" + independent +
-                ", unMember=" + unMember +
-                ", population=" + population +
-                ", area=" + area +
-                '}';
-    }
-
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -152,5 +134,25 @@ public class City {
 
     public void setArea(long area) {
         this.area = area;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", continent='" + continent + '\'' +
+                ", createdAt=" + createdAt +
+                ", countryId='" + countryId + '\'' +
+                ", region='" + region + '\'' +
+                ", subregion='" + subregion + '\'' +
+                ", status='" + status + '\'' +
+                ", capital='" + capital + '\'' +
+                ", independent=" + independent +
+                ", unMember=" + unMember +
+                ", population=" + population +
+                ", area=" + area +
+                '}';
     }
 }

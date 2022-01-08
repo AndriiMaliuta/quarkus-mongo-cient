@@ -1,11 +1,12 @@
 package org.anma.qrk.models;
 
 import io.quarkus.mongodb.panache.common.MongoEntity;
+import org.bson.types.ObjectId;
 
 @MongoEntity(collection = "country")
 public class Country {
 
-    private String id;
+    private ObjectId id;
     private long area;
     private long population;
     private String status;
@@ -23,12 +24,20 @@ public class Country {
     private String continents;
     private boolean independent;
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    public String getContinentName() {
+        return continentName;
+    }
+
+    public void setContinentName(String continentName) {
+        this.continentName = continentName;
     }
 
     public long getArea() {

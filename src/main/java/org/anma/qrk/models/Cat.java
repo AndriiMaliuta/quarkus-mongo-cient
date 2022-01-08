@@ -2,6 +2,7 @@ package org.anma.qrk.models;
 
 import io.quarkus.mongodb.panache.PanacheMongoEntity;
 import io.quarkus.mongodb.panache.common.MongoEntity;
+import org.bson.types.ObjectId;
 import org.jboss.logging.annotations.Field;
 
 import java.util.List;
@@ -9,8 +10,8 @@ import java.util.List;
 @MongoEntity(collection = "cats")
 public class Cat extends PanacheMongoEntity {
 
-     String catId;
-     String id;
+    ObjectId id;
+    String catId;
      String name;
      String color;
      String breed;
@@ -64,11 +65,11 @@ public class Cat extends PanacheMongoEntity {
         this.catId = catId;
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

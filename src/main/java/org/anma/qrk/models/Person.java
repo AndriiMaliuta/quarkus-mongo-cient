@@ -1,13 +1,15 @@
 package org.anma.qrk.models;
 
 import io.quarkus.mongodb.panache.common.MongoEntity;
+import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
 
 @MongoEntity(collection = "person", database = "people")
 public class Person {
 
-    private String personId;
+    ObjectId id;
+     String personId;
     private Long num;
     private String name;
     private String fullName;

@@ -24,7 +24,6 @@ public class CityConverter {
         city.setIndependent(cityWeb.isIndependent());
         city.setUnMember(cityWeb.isUnMember());
         city.setPopulation(cityWeb.getPopulation());
-        city.setCountryId(countryService.getByCapital(cityWeb.getCapital()[0]).getId());
         return city;
     }
 

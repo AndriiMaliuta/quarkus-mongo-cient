@@ -17,7 +17,6 @@ public class CatConverter {
 
     public Cat convert(CatWeb catWeb) {
         Cat cat = new Cat();
-        cat.setId(catWeb.getId());
         cat.setAge(new Random().nextInt(17));
         cat.setCountryCodes(catWeb.getCountryCodes());;
         cat.setAdaptability(catWeb.getAdaptability());
