@@ -1,7 +1,10 @@
 package org.anma.qrk.models;
 
+import io.quarkus.mongodb.panache.common.MongoEntity;
+
 import java.time.LocalDateTime;
 
+@MongoEntity
 public class Person {
 
     private String personId;
@@ -17,11 +20,7 @@ public class Person {
     private boolean hasChildren;
     private boolean engaged;
     private LocalDateTime createdAt = LocalDateTime.now();
-//    private List<Cat> cats;
-//    @Field(name="country_id")
     private String countryId;
-//    private Country country;
-
 
     public String getPersonId() {
         return personId;

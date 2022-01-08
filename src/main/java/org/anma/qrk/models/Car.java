@@ -1,24 +1,28 @@
 package org.anma.qrk.models;
 
+import io.quarkus.mongodb.panache.PanacheMongoEntity;
+import io.quarkus.mongodb.panache.common.MongoEntity;
 import org.apache.commons.lang3.RandomUtils;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-//@Document( "cars")
-public class Car {
+@MongoEntity(collection = "cars")
+public class Car extends PanacheMongoEntity {
 
-//    @Id
-    private String id;
-    private long carId;
-    private String model;
-    private String color;
-    private String registry;
-    private String origin;
-    private LocalDateTime createdAt;
-    private String countryCodes;
-    private int maxSpeed;
-    private int age;
-    private String personId;
+    String id;
+    long carId;
+    String model;
+    String color;
+    String registry;
+    String origin;
+    LocalDateTime createdAt;
+    String countryCodes;
+    int maxSpeed;
+    int age;
+    @BsonProperty("personId")
+    String personId;
 
     public Car() {
     }
@@ -37,21 +41,12 @@ public class Car {
         this.setPersonId(persdonId);
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "carId=" + carId +
-                ", id='" + id + '\'' +
-                ", model='" + model + '\'' +
-                ", color='" + color + '\'' +
-                ", registry='" + registry + '\'' +
-                ", origin='" + origin + '\'' +
-                ", createdAt=" + createdAt +
-                ", countryCodes='" + countryCodes + '\'' +
-                ", maxSpeed=" + maxSpeed +
-                ", age=" + age +
-                ", personId='" + personId + '\'' +
-                '}';
+    public static List<Car> findByModel(String model) {
+        return find("model", model).firstResult();
+    }
+
+    public static List<Car> findByAge(int age) {
+        return find("age", age).firstResult();
     }
 
     public long getCarId() {
@@ -140,5 +135,22 @@ public class Car {
 
     public void setPersonId(String personId) {
         this.personId = personId;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carId=" + carId +
+                ", id='" + id + '\'' +
+                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
+                ", registry='" + registry + '\'' +
+                ", origin='" + origin + '\'' +
+                ", createdAt=" + createdAt +
+                ", countryCodes='" + countryCodes + '\'' +
+                ", maxSpeed=" + maxSpeed +
+                ", age=" + age +
+                ", personId='" + personId + '\'' +
+                '}';
     }
 }

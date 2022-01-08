@@ -4,6 +4,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import org.anma.qrk.models.Car;
+import org.anma.qrk.models.City;
 import org.anma.qrk.models.Country;
 import org.bson.Document;
 
@@ -26,12 +27,16 @@ public class CountryService {
                 Document document = cursor.next();
                 Country country = new Country();
                 country.setArea(document.getLong("area"));
-                country.setBorders(document.getInteger("age"));
-                country.setBorders(document.getInteger("age"));
-                country.setBorders(document.getInteger("age"));
-                country.setBorders(document.getInteger("age"));
-                country.setBorders(document.getInteger("age"));
-                country.setBorders(document.getInteger("age"));
+                country.setPopulation(document.getLong("population"));
+                country.setBorders(document.getString("borders"));
+                country.setCode(document.getString("code"));
+                country.setCapital(document.getString("capital"));
+                country.setCca2(document.getString("cca2"));
+                country.setContinents(document.getString("continents"));
+                country.setRegion(document.getString("region"));
+                country.setLanguages(document.getString("languages"));
+                country.setStatus(document.getString("status"));
+                country.setIndependent(document.getBoolean("independent"));
                 list.add(country);
             }
         } finally {
@@ -41,10 +46,21 @@ public class CountryService {
 
     }
 
+    //todo - check for logic
+    String getRandomId() {
+
+        Document country = (Document) getCollection().find().first();
+
+        return country.getString("_id");
+    }
+
 
 
     private MongoCollection getCollection(){
         return mongoClient.getDatabase("people").getCollection("country");
     }
 
+    public Country getByCapital(String s) {
+        return null;
+    }
 }

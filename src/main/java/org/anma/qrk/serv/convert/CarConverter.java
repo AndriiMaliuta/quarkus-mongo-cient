@@ -10,11 +10,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class CarConverterImpl {
-
+public class CarConverter {
 
     @Inject
-    private MyRandomService randomService;
+    MyRandomService randomService;
     @Inject
     PersonService personService;
 

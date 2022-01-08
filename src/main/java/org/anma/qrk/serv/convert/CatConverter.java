@@ -13,7 +13,7 @@ import java.util.Random;
 public class CatConverter {
 
     @Inject
-    private PersonService personService;
+    PersonService personService;
 
     public Cat convert(CatWeb catWeb) {
         Cat cat = new Cat();
