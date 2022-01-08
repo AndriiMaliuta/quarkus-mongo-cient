@@ -1,6 +1,7 @@
 package org.anma.qrk.contr;
 
 import org.anma.qrk.models.Car;
+import org.anma.qrk.models.Person;
 import org.anma.qrk.models.web.CarWeb;
 import org.anma.qrk.models.web.PersonWeb;
 import org.anma.qrk.repo.PersonRepo;
@@ -13,10 +14,11 @@ import org.bson.types.ObjectId;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Path("/cars")
+@Path("/person")
 public class PersonResource {
 
     @Inject
@@ -29,11 +31,12 @@ public class PersonResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<PersonWeb> list() {
+        List<PersonWeb> personWebs = new ArrayList<>();
+        List<Person> list = personRepo.findAll().list();
+        list.stream()
+                .forEach(c -> personWebs.add(personConverter.convert(c)));
+        return personWebs;
 
-        return personRepo.findAll()
-                .stream()
-                .map(c -> personConverter.convert(c))
-                .collect(Collectors.toList());
     }
 
     @Path("/{personId}")

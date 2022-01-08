@@ -4,11 +4,11 @@ import io.quarkus.mongodb.panache.common.MongoEntity;
 
 import java.time.LocalDateTime;
 
-@MongoEntity
+@MongoEntity(collection = "person", database = "people")
 public class Person {
 
     private String personId;
-    private Long id;
+    private Long num;
     private String name;
     private String fullName;
     private String email;
@@ -30,12 +30,12 @@ public class Person {
         this.personId = personId;
     }
 
-    public Long getId() {
-        return id;
+    public Long getNum() {
+        return num;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setNum(Long num) {
+        this.num = num;
     }
 
     public String getName() {
@@ -138,7 +138,7 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "personId='" + personId + '\'' +
-                ", id=" + id +
+                ", id=" + num +
                 ", name='" + name + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +

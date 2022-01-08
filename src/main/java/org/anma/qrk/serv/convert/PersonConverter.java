@@ -20,7 +20,7 @@ public class PersonConverter {
         personWeb.setHasChildren(person.isHasChildren());
         personWeb.setGender(person.getGender());
         personWeb.setFullName(person.getFullName());
-        personWeb.setId(person.getId());
+        personWeb.setNum(personWeb.getNum());
         return personWeb;
     }
 

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class PersonWeb {
 
-    private Long id;
+    private Long num;
     private String name;
     private String fullName;
     private String email;
@@ -18,12 +18,12 @@ public class PersonWeb {
     private LocalDateTime createdAt = LocalDateTime.now();
     private long countryId;
 
-    public Long getId() {
-        return id;
+    public Long getNum() {
+        return num;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setNum(Long num) {
+        this.num = num;
     }
 
     public String getName() {
@@ -125,7 +125,7 @@ public class PersonWeb {
     @Override
     public String toString() {
         return "PersonWeb{" +
-                "id=" + id +
+                "id=" + num +
                 ", name='" + name + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +

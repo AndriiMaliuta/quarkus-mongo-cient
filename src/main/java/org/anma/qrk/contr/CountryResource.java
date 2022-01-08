@@ -1,6 +1,5 @@
 package org.anma.qrk.contr;
 
-import org.anma.qrk.models.Country;
 import org.anma.qrk.models.web.CountryWeb;
 import org.anma.qrk.serv.CountryService;
 import org.anma.qrk.serv.convert.CountryConverter;
