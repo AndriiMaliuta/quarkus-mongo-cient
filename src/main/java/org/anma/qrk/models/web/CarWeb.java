@@ -15,6 +15,7 @@ public class CarWeb {
     private String countryCodes;
     private int age;
     private String personId;
+    private int maxSpeed;
 
     public long getCarId() {
         return carId;
@@ -94,5 +95,13 @@ public class CarWeb {
 
     public void setPersonId(String personId) {
         this.personId = personId;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
     }
 }

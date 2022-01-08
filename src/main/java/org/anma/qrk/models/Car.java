@@ -4,14 +4,16 @@ import io.quarkus.mongodb.panache.PanacheMongoEntity;
 import io.quarkus.mongodb.panache.common.MongoEntity;
 import org.apache.commons.lang3.RandomUtils;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @MongoEntity(collection = "cars")
-public class Car extends PanacheMongoEntity {
+public class Car {
 
-    String id;
+//    @BsonId
+    ObjectId id;
     long carId;
     String model;
     String color;
@@ -41,13 +43,7 @@ public class Car extends PanacheMongoEntity {
         this.setPersonId(persdonId);
     }
 
-    public static List<Car> findByModel(String model) {
-        return find("model", model).firstResult();
-    }
 
-    public static List<Car> findByAge(int age) {
-        return find("age", age).firstResult();
-    }
 
     public long getCarId() {
         return carId;
@@ -57,11 +53,11 @@ public class Car extends PanacheMongoEntity {
         this.carId = carId;
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -140,8 +136,8 @@ public class Car extends PanacheMongoEntity {
     @Override
     public String toString() {
         return "Car{" +
-                "carId=" + carId +
-                ", id='" + id + '\'' +
+                "id=" + id +
+                ", carId=" + carId +
                 ", model='" + model + '\'' +
                 ", color='" + color + '\'' +
                 ", registry='" + registry + '\'' +

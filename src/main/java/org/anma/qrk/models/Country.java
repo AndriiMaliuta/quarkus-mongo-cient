@@ -1,5 +1,8 @@
 package org.anma.qrk.models;
 
+import io.quarkus.mongodb.panache.common.MongoEntity;
+
+@MongoEntity(collection = "country")
 public class Country {
 
     private String id;

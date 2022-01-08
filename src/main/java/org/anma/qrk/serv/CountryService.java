@@ -3,21 +3,21 @@ package org.anma.qrk.serv;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-import org.anma.qrk.models.Car;
-import org.anma.qrk.models.City;
 import org.anma.qrk.models.Country;
 import org.bson.Document;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class CountryService {
 
     @Inject
     MongoClient mongoClient;
 
-    List<Country> findAll() {
+    public List<Country> findAll() {
 
         List<Country> list = new ArrayList<>();
         MongoCursor<Document> cursor = getCollection().find().iterator();
@@ -47,11 +47,11 @@ public class CountryService {
     }
 
     //todo - check for logic
-    String getRandomId() {
+    public String getRandomId() {
 
         Document country = (Document) getCollection().find().first();
 
-        return country.getString("_id");
+        return country.getObjectId("_id").toString();
     }
 
 

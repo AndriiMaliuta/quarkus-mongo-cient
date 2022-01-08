@@ -34,6 +34,17 @@ public class CarConverter {
     }
 
     public CarWeb convert(Car car) {
-        return null;
+        CarWeb carWeb = new CarWeb();
+        carWeb.setCarId(car.getCarId());
+//        car.setId(UUID.randomUUID().toString());
+        carWeb.setAge(RandomUtils.nextInt(0, 30));
+        carWeb.setModel(car.getModel());   //brand -> model
+        carWeb.setPersonId(personService.getPersRandomId());
+        carWeb.setCountryCodes(randomService.getCountryCode()); // empty
+        carWeb.setOrigin(randomService.getOrigin()); // empty
+        carWeb.setColor(randomService.getColor());   // empty
+        carWeb.setRegistry(car.getRegistry());
+        carWeb.setMaxSpeed(randomService.getRandomSpeed());
+        return carWeb;
     }
 }

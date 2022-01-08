@@ -32,6 +32,12 @@ public class CarService {
                 Car car = new Car();
                 car.setColor(document.getString("color"));
                 car.setAge(document.getInteger("age"));
+                car.setModel(document.getString("model"));
+                car.setRegistry(document.getString("registry"));
+                car.setOrigin(document.getString("origin"));
+                car.setCountryCodes(document.getString("countryCodes"));
+                car.setMaxSpeed(document.getInteger("maxSpeed"));
+                car.setPersonId(document.getString("personId"));
                 list.add(car);
             }
         } finally {

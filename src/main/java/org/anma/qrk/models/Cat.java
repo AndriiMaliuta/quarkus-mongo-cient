@@ -1,26 +1,38 @@
 package org.anma.qrk.models;
 
+import io.quarkus.mongodb.panache.PanacheMongoEntity;
+import io.quarkus.mongodb.panache.common.MongoEntity;
 import org.jboss.logging.annotations.Field;
 
-//@Document(value = "cats")
-public class Cat {
+import java.util.List;
 
-    private String catId;
-    private String id;
-    private String name;
-    private String color;
-    private String breed;
-    private String registry;
-    private String origin;
-    private String wikipediaUrl;
-    private int age;
-    private int indoor;
-    private int adaptability;
-    private int dogFriendly;
-    private int intelligence;
-    private int hairless;
-    private String personId;
-    private String countryCodes;
+@MongoEntity(collection = "cats")
+public class Cat extends PanacheMongoEntity {
+
+     String catId;
+     String id;
+     String name;
+     String color;
+     String breed;
+     String registry;
+     String origin;
+     String wikipediaUrl;
+     int age;
+     int indoor;
+     int adaptability;
+     int dogFriendly;
+     int intelligence;
+     int hairless;
+     String personId;
+     String countryCodes;
+
+    public static List<Cat> findByModel(String name) {
+        return find("name", name).firstResult();
+    }
+
+    public static List<Cat> findByAge(int age) {
+        return find("age", age).firstResult();
+    }
 
     @Override
     public String toString() {

@@ -18,6 +18,7 @@ public class CountryWeb {
     private String unMember;
     private String cca2;
     private String region;
+    private String countryId;
     private boolean independent;
     private String[] tld;
     private String[] continents;
@@ -136,5 +137,13 @@ public class CountryWeb {
 
     public void setName(Name name) {
         this.name = name;
+    }
+
+    public String getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
     }
 }
