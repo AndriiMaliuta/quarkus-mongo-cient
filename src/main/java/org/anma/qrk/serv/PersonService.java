@@ -48,7 +48,9 @@ public class PersonService {
     }
 
     public String getPersRandomId() {
-            return null;
+        MongoCursor<Document> cursor = getCollection().find().iterator();
+        Document document = cursor.next();
+        return document.getObjectId("_id").toHexString();
     }
 
 
