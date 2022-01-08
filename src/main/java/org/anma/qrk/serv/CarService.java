@@ -1,9 +1,9 @@
-package org.acme.mongodb.serv;
+package org.anma.qrk.serv;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-import org.acme.mongodb.models.Car;
+import org.anma.qrk.models.Car;
 import org.bson.Document;
 
 import javax.enterprise.context.ApplicationScoped;

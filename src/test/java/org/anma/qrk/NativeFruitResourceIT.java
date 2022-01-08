@@ -1,4 +1,4 @@
-package org.acme.mongodb;
+package org.anma.qrk;
 
 import io.quarkus.test.junit.NativeImageTest;
 

@@ -1,4 +1,4 @@
-package org.acme.mongodb.models;
+package org.anma.qrk.models;
 
 import org.apache.commons.lang3.RandomUtils;
 

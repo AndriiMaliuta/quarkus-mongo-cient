@@ -1,14 +1,13 @@
-package org.acme.mongodb;
+package org.anma.qrk.contr;
 
-import org.acme.mongodb.models.Car;
-import org.acme.mongodb.serv.CarService;
+import org.anma.qrk.models.Car;
+import org.anma.qrk.models.web.CarWeb;
+import org.anma.qrk.serv.CarService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/cars")
@@ -18,7 +17,8 @@ public class CarResource {
     CarService carService;
 
     @GET
-    public List<Car> list() {
+    public List<CarWeb> list() {
+
         return carService.allCars();
     }
 
