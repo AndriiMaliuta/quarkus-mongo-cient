@@ -5,6 +5,7 @@ import io.quarkus.mongodb.panache.common.MongoEntity;
 @MongoEntity(collection = "country")
 public class Country {
 
+    private String id;
     private long area;
     private long population;
     private String status;
@@ -21,6 +22,14 @@ public class Country {
     private String borders;
     private String continents;
     private boolean independent;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public long getArea() {
         return area;

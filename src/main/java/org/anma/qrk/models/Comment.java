@@ -4,19 +4,11 @@ import java.time.LocalDateTime;
 
 public class Comment {
 
-    public String id;
     public String body;
     public String category;
     public LocalDateTime createdAt;
     public String authorId;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getBody() {
         return body;
