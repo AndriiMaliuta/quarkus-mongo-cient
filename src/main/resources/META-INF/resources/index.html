@@ -50,7 +50,7 @@
 
 <script type="text/javascript">
     var connected = false;
-    var socket;
+    let socket;
 
     $( document ).ready(function() {
         $("#connect").click(connect);
@@ -75,11 +75,11 @@
         $("#name").focus();
     });
 
-    var connect = function() {
+    const connect = function() {
         if (! connected) {
-            var name = $("#name").val();
+            let name = $("#name").val();
             console.log("Val: " + name);
-            socket = new WebSocket("ws://" + location.host + "/chat/" + name);
+            socket = new WebSocket("ws://" + location.host + "/sock/" + name);
             socket.onopen = function() {
                 connected = true;
                 console.log("Connected to the web socket");
@@ -88,7 +88,7 @@
                 $("#name").attr("disabled", true);
                 $("#msg").focus();
             };
-            socket.onmessage =function(m) {
+            socket.onmessage = function(m) {
                 console.log("Got message: " + m.data);
                 $("#chat").append(m.data + "\n");
                 scrollToBottom();
@@ -96,16 +96,16 @@
         }
     };
 
-    var sendMessage = function() {
+    let sendMessage = function() {
         if (connected) {
-            var value = $("#msg").val();
+            let value = $("#msg").val();
             console.log("Sending " + value);
             socket.send(value);
             $("#msg").val("");
         }
     };
 
-    var scrollToBottom = function () {
+    const scrollToBottom = function () {
         $('#chat').scrollTop($('#chat')[0].scrollHeight);
     };
 
